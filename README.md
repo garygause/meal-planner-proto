@@ -9,13 +9,6 @@ langchain, openai, python, poetry
 ## Usage
 
 1. Clone the repository:
-1. Clone the repository:
-
-```bash
-git clone git@github.com:garygause/meal-planner-proto.git
-```
-
-or
 
 ```bash
 git clone https://github.com/garygause/meal-planner-proto.git
@@ -24,6 +17,7 @@ git clone https://github.com/garygause/meal-planner-proto.git
 2. Install dependencies:
 
 ```bash
+cd meal-planner-proto
 pyenv local 3.11.4
 poetry install
 ```
@@ -161,4 +155,4 @@ Feel free to adjust quantities based on individual dietary needs or preferences.
 
 ## Credits
 
-Based on lessons learned from the [From zero to professional level: learn the keys to Generative AI, LLM Apps, AI Agents, and Cursor AI.](https://www.udemy.com/course/bootcamp-generative-artificial-intelligence-and-llm-app-development) course by Julio Colomer.
+Based on lessons learned from the [2025 Bootcamp: Generative AI, LLM Apps, AI Agents, Cursor AI](https://www.udemy.com/course/bootcamp-generative-artificial-intelligence-and-llm-app-development) course by Julio Colomer.
