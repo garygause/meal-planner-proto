@@ -5,28 +5,37 @@ _ = load_dotenv(find_dotenv())
 
 openai_api_key = os.environ["OPENAI_API_KEY"]
 
-from langchain_openai import OpenAI
-from langchain_core.prompts import PromptTemplate
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
 
-llm = OpenAI()
+llm = ChatOpenAI(model="gpt-4o-mini")
 
-prompt_template = PromptTemplate.from_template(
-    """
-    Generate a meal plan for one day include breakfast, lunch, and dinner.
-    Follow these dietary restrictions: {dietary_restrictions}. 
-    The preferred cuisine is {preferred_cuisine}.
-    Return full recipes for each meal, including ingredients and instructions.
-    Finally, generate a shopping list that includes all ingredients and quantities used in the recipes.
-    """
+
+chat_template = ChatPromptTemplate.from_messages(
+    [
+        ("system", "You are an Nutritionist expert on meal planning."),
+        ("human", "Hello, Nutritionist, can you please help me with meal planning?"),
+        ("ai", "Sure!"),
+        (
+            "human",
+            """
+            Generate a meal plan for one day include breakfast, lunch, and dinner.
+            Follow these dietary restrictions: {dietary_restrictions}. 
+            The preferred cuisine is {preferred_cuisine}.
+            Return full recipes for each meal, including ingredients and instructions.
+            Finally, generate an efficient shopping list that includes all ingredients used in the recipes and estimated cost.
+            """,
+        ),
+    ]
 )
 
 
 def generate_meal_plan(dietary_restrictions, preferred_cuisine):
-    llm_prompt = prompt_template.format(
+    messages = chat_template.format_messages(
         dietary_restrictions=dietary_restrictions, preferred_cuisine=preferred_cuisine
     )
-    response = llm.invoke(llm_prompt)
-    return response
+    response = llm.invoke(messages)
+    return response.content
 
 
 def main():
