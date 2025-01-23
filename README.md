@@ -49,7 +49,8 @@ vegetarian
 Generating meal plan...
 Meal plan generated!
 Here is your meal plan:
-Absolutely! Here’s a heart-healthy vegetarian meal plan for one day, including breakfast, lunch, and dinner, along with recipes and a shopping list.
+
+Here’s a heart-healthy vegetarian meal plan for one day, including breakfast, lunch, and dinner, along with recipes and a shopping list.
 
 ### Meal Plan
 
