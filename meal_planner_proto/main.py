@@ -12,18 +12,18 @@ llm = OpenAI()
 
 prompt_template = PromptTemplate.from_template(
     """
-    Generate a meal plan following these dietary restrictions: {dietary_restrictions}. 
-    Use these preferred ingredients:  {preferred_ingredients}.  
+    Generate a meal plan for one day include breakfast, lunch, and dinner.
+    Follow these dietary restrictions: {dietary_restrictions}. 
     The preferred cuisine is {preferred_cuisine}.
+    Return full recipes for each meal, including ingredients and instructions.
+    Finally, generate a shopping list that includes all ingredients and quantities used in the recipes.
     """
 )
 
 
-def generate_meal_plan(dietary_restrictions, preferred_cuisine, preferred_ingredients):
+def generate_meal_plan(dietary_restrictions, preferred_cuisine):
     llm_prompt = prompt_template.format(
-        dietary_restrictions=dietary_restrictions,
-        preferred_cuisine=preferred_cuisine,
-        preferred_ingredients=preferred_ingredients,
+        dietary_restrictions=dietary_restrictions, preferred_cuisine=preferred_cuisine
     )
     response = llm.invoke(llm_prompt)
     return response
@@ -35,13 +35,9 @@ def main():
     dietary_restrictions = input()
     print("Please enter your preferred cuisine, separated by commas:")
     preferred_cuisine = input()
-    print("Please enter your preferred ingredients, separated by commas:")
-    preferred_ingredients = input()
 
     print("Generating meal plan...")
-    meal_plan = generate_meal_plan(
-        dietary_restrictions, preferred_cuisine, preferred_ingredients
-    )
+    meal_plan = generate_meal_plan(dietary_restrictions, preferred_cuisine)
     print("Meal plan generated!")
     print("Here is your meal plan:")
     print(meal_plan)
