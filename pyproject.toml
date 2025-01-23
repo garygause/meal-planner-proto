@@ -1,13 +1,17 @@
 [tool.poetry]
 name = "meal-planner-proto"
 version = "0.1.0"
-description = ""
+description = "Meal Planner agent prototype."
 authors = ["Gary Gause <garygause@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.11.4"
-
+jupyterlab = "^4.3.4"
+langchain = "^0.3.15"
+langchain-openai = "^0.3.1"
+python-dotenv = "^1.0.1"
+langchain-groq = "^0.2.3"
 
 [build-system]
 requires = ["poetry-core"]

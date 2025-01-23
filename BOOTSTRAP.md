@@ -28,5 +28,8 @@ git push -u origin main
 Add deps:
 
 ```bash
-
+pip install jupyterlab
+pip install langchain
+pip install langchain-openai langchain-groq
+pip install python-dotenv
 ```
