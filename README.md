@@ -2,6 +2,8 @@
 
 This is an example project I have written using LangChain and OpenAI to create a meal planner prototype.
 
+This example demonstrates a basic chat-based interaction with the OpenAI API using LangChain.
+
 ## Stack
 
 langchain, openai, python, poetry
